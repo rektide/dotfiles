@@ -9,3 +9,4 @@ dst="$HOME/.config/systemd/user/workrave.service"
 mkdir -p "$(echo $dst|basename)"
 cp "$src" "$dest"
 systemctl start --user workrave.service
+systemctl enable --user workrave.service

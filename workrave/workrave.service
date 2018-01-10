@@ -1,7 +1,10 @@
 [Unit]
 Description=RSI prevention tool
 Documentation=https://www.archlinux.org/packages/community/x86_64/workrave/
-After=graphical.target
+# This target & it's use documented in systemd.special(7).
+After=graphical-session.target
+Requires=graphical-session.target
+BindsTo=graphical-session.target
 
 [Service]
 Type=simple
@@ -9,4 +12,4 @@ Environment=LC_ALL=C
 ExecStart=/usr/bin/workrave
 
 [Install]
-WantedBy=main.target
+WantedBy=default.target
